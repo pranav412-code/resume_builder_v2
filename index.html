@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LatexAI | Premium Resume Studio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            serif: ['Merriweather', 'serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            midnight: '#020617',
+            studio: '#0f172a',
+          }
+        },
+      },
+    }
+  </script>
+  <style>
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .mesh-gradient {
+      background-color: #f8fafc;
+      background-image:
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.05) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(244, 63, 94, 0.05) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.05) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, rgba(59, 130, 246, 0.05) 0px, transparent 50%);
+    }
+
+    .editor-glass {
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    @media print {
+
+      /* Hide everything except the resume preview */
+      body>*:not(#root) {
+        display: none !important;
+      }
+
+      body {
+        margin: 0 !important;
+        padding: 0 !important;
+        background: white !important;
+        overflow: hidden !important;
+      }
+
+      html {
+        overflow: hidden !important;
+      }
+
+      .no-print {
+        display: none !important;
+      }
+
+      #preview-container {
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        background: white !important;
+        display: block !important;
+        position: static !important;
+        overflow: hidden !important;
+      }
+
+      #resume-preview,
+      #resume-preview-classic,
+      #resume-preview-minimal,
+      #resume-preview-professional {
+        margin: 0 !important;
+        box-shadow: none !important;
+        width: 210mm !important;
+        min-height: 297mm !important;
+        padding: 1cm !important;
+      }
+
+      /* Set exact 1cm margins on the page */
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      /* Improve header spacing */
+      header {
+        margin-bottom: 1.5em !important;
+      }
+
+      /* Section title improvements */
+      .section-title {
+        margin-top: 1.2em !important;
+        margin-bottom: 0.6em !important;
+        page-break-after: avoid !important;
+      }
+
+      /* Page break controls */
+      .page-break {
+        page-break-after: always !important;
+      }
+
+      .page-break-avoid {
+        page-break-inside: avoid !important;
+      }
+
+      /* Prevent orphaned headings */
+      h1,
+      h2,
+      h3,
+      h4 {
+        page-break-after: avoid !important;
+      }
+
+      /* Keep experience/education items together */
+      .experience-item,
+      .education-item,
+      .project-item {
+        page-break-inside: avoid !important;
+      }
+
+      /* Link styling for print */
+      a {
+        color: inherit !important;
+        text-decoration: none !important;
+      }
+    }
+  </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.1",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "mammoth": "https://cdn.jsdelivr.net/npm/mammoth@1.8.0/+esm"
+  }
+}
+</script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+
+<body class="bg-midnight text-slate-200 h-screen overflow-hidden font-sans">
+  <div id="root"></div>
+  <script type="module" src="/src/index.tsx"></script>
+</body>
+
+</html>

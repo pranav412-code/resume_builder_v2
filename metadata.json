@@ -1,0 +1,5 @@
+{
+  "name": "LatexAI Resume Builder",
+  "description": "An intelligent, stepper-based resume builder that uses Gemini to parse existing resumes, suggest improvements, and render a live LaTeX-style preview.",
+  "requestFramePermissions": []
+}
